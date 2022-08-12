@@ -1,0 +1,10 @@
+package com.app;
+
+public class ProductDAO {
+
+	public static void addProductDetails(String proName, String proPrice, String proCategory) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

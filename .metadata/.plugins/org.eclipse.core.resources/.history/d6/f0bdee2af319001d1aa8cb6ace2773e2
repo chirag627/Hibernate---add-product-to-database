@@ -1,0 +1,58 @@
+package com.app.domain;
+
+public class Product {
+
+	private int id;
+	private String proName;
+	private String proPrice;
+	private String proCategory;
+
+	public Product(String proCategory, String proPrice, String proName, int id) {
+		super();
+		this.id = id;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.proCategory = proCategory;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getProName() {
+		return proName;
+	}
+
+	public void setProName(String proName) {
+		this.proName = proName;
+	}
+
+	public String getProPrice() {
+		return proPrice;
+	}
+
+	public void setProPrice(String proPrice) {
+		this.proPrice = proPrice;
+	}
+
+	public String getProCategory() {
+		return proCategory;
+	}
+
+	public void setProCategory(String proCategory) {
+		this.proCategory = proCategory;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", proName=" + proName + ", proPrice=" + proPrice + ", proCategory=" + proCategory
+				+ "]";
+	}
+	
+	
+
+}

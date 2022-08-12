@@ -1,0 +1,10 @@
+package com.app.domain;
+
+public class Product {
+	
+	private int id;
+	private String proName;
+	private String proPrice;
+	private String proC
+
+}

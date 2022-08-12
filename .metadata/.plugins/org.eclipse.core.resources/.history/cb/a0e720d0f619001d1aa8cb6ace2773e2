@@ -1,0 +1,31 @@
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+
+import com.samples.utils.HibernateUtil;
+
+@WebServlet("/ProductTest")
+public class ProductTest extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+
+		session.beginTransaction();
+
+	Product product = new Product("Hello world with Hibernate");
+
+		session.save(product);
+
+		session.getTransaction().commit();
+
+		session.close();
+	}
+}

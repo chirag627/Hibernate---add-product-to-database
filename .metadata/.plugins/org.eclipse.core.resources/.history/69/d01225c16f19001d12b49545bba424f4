@@ -1,0 +1,30 @@
+package com.app;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import org.hibernate.cfg.Configuration;
+import org.hibernate.sql.ordering.antlr.Factory;
+
+public class Main {
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  
+  SessionFactory factory = new Configuration()
+                         .configure("hibernate.cfg.xml")
+                         .addAnnotatedClass(Users.class)
+                         .buildSessionFactory();
+  Session session = factory.getCurrentSession();
+  try {   
+   Users user = new Users("username", "password", "firstName", "lastName");
+   session.beginTransaction();
+   session.save(user);
+   session.getTransaction().commit();
+   System.out.println("Data is Added");
+   
+  } finally {
+   // TODO: handle finally clause
+   session.close();
+   factory.close();
+  }
+ }
+}

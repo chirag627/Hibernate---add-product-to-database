@@ -1,0 +1,36 @@
+package com.app;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import org.hibernate.cfg.Configuration;
+import org.hibernate.sql.ordering.antlr.Factory;
+
+import com.app.entity.Product;
+
+
+
+
+
+public class Main {
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  
+  SessionFactory factory = new Configuration()
+                         .configure("hibernate.cfg.xml")
+                         .addAnnotatedClass(Product.class)
+                         .buildSessionFactory();
+  Session session = factory.getCurrentSession();
+  try {   
+   Product product = new Product(0, null, null, null);
+   session.beginTransaction();
+   session.save(product);
+   session.getTransaction().commit();
+   System.out.println("Data is Added");
+   
+  } finally {
+   // TODO: handle finally clause
+   session.close();
+   factory.close();
+  }
+ }
+}
